@@ -50,32 +50,38 @@ namespace DQ8Alchemy.Pages
 
         private void RecipeListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            string selectedIndex = "";
-            switch (DG.SelectedCells.FirstOrDefault().Column.Header.ToString())
+            try
             {
-                case "Name":
-                    selectedIndex = ((Recipe)DG.SelectedCells.FirstOrDefault().Item).Name;
-                    break;
-                case "Ingredient 1":
-                    selectedIndex = ((Recipe)DG.SelectedCells.FirstOrDefault().Item).IngredientOne;
-                    break;
-                case "Ingredient 2":
-                    selectedIndex = ((Recipe)DG.SelectedCells.FirstOrDefault().Item).IngredientTwo;
-                    break;
-                case "Ingredient 3":
-                    #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                    selectedIndex = ((Recipe)DG.SelectedCells.FirstOrDefault().Item).IngredientThree;
-                    #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
-                    break;
-                default:
-                    selectedIndex = "";
-                    break;
+                string selectedIndex = "";
+                switch (DG.SelectedCells.FirstOrDefault().Column.Header.ToString())
+                {
+                    case "Name":
+                        selectedIndex = ((Recipe)DG.SelectedCells.FirstOrDefault().Item).Name;
+                        break;
+                    case "Ingredient 1":
+                        selectedIndex = ((Recipe)DG.SelectedCells.FirstOrDefault().Item).IngredientOne;
+                        break;
+                    case "Ingredient 2":
+                        selectedIndex = ((Recipe)DG.SelectedCells.FirstOrDefault().Item).IngredientTwo;
+                        break;
+                    case "Ingredient 3":
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+                        selectedIndex = ((Recipe)DG.SelectedCells.FirstOrDefault().Item).IngredientThree;
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                        break;
+                    default:
+                        selectedIndex = "";
+                        break;
 
-            }
-            if (selectedIndex != "" || selectedIndex != null)
+                }
+                if (selectedIndex != "" || selectedIndex != null)
+                {
+                    string url = $"https://dragon-quest.org/wiki/{selectedIndex.Replace(' ', '_')}";
+                    Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+                }
+            }catch(NullReferenceException)
             {
-                string url = $"https://dragon-quest.org/wiki/{selectedIndex.Replace(' ', '_')}";
-                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+                Console.WriteLine("The user clicked the column name");
             }
         }
     }
