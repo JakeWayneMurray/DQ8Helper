@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DQ8Alchemy"
         mc:Ignorable="d"
-        Title="Dragon Quest 8 Alchemy" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Dragon Quest 8 Helper" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel Orientation="Horizontal">
 
         <StackPanel Orientation="Vertical" Width="750">

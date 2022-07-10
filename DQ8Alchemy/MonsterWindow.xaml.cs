@@ -45,6 +45,7 @@ namespace DQ8Alchemy
                     Console.Write("oh no, theres no link");
                 }
             }
+            this.Title = monster.Name + "'s Profile";
             NameTextBlock.Text = monster.Name;
             SpeciesTextBlock.Text = monster.Species;
             CoinTypeTextBlock.Text = monster.CoinType;

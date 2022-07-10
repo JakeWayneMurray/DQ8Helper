@@ -5,7 +5,12 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>bin\Debug\net6.0-windows\quest-icon-27.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net6.0-windows\quest-icon-27.ico" />
+  </ItemGroup>
 
   <ItemGroup>
 	<Resource Include="Fonts\Splash-Regular.ttf" />
